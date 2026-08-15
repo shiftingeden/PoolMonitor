@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pool Monitor — Support</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 6rem;
+    color: #1c1f26; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #e8eaee; background: #14161a; } a { color: #7fb2ff; } }
+  h1 { font-size: 2rem; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2.25rem; }
+  .sub { color: #6a7180; margin-top: 0; }
+  code { font-size: 0.9em; background: rgba(127,127,127,0.15); padding: 0.1em 0.35em; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>Pool Monitor Support</h1>
+<p class="sub">Email <a href="mailto:TechBitsMix@gmail.com">TechBitsMix@gmail.com</a> — I read everything.</p>
+
+<h2>Nothing shows up after I enter my key</h2>
+<p>Check the key is the <em>read-only API key</em> from your pool account rather
+than a password or a wallet address, and that it was pasted without a trailing
+space. If the key is right and the screen is still empty, your account may have
+no active workers on the coins being checked — try Auto-detect, which scans for
+whichever coins you're actually mining.</p>
+
+<h2>Auto-detect versus Manual</h2>
+<p><strong>Auto-detect</strong> scans the common coins with your key and shows
+only the ones you're active on — start here if you're not sure. <strong>Manual
+</strong> lets you pick coins yourself from the catalogue, and has a custom slug
+field for anything not listed.</p>
+
+<h2>A worker shows offline but it's running</h2>
+<p>The app reports what the pool reports. A worker that has just restarted, or
+that submits shares infrequently, can read as offline for a few minutes before
+the pool catches up. If it stays wrong for longer than that, compare it against
+the pool's own dashboard — if they disagree, email me.</p>
+
+<h2>I'm not getting offline notifications</h2>
+<p>Check notifications are allowed in <em>Settings → Pool Monitor →
+Notifications</em>. Background checks are also scheduled by iOS rather than by
+the app, so how often they run depends on battery level, Low Power Mode and how
+often you open the app. Opening it always refreshes immediately.</p>
+
+<h2>The widget isn't updating</h2>
+<p>Widgets refresh on a budget iOS controls, so the figure can lag the app by a
+while. Open the app to force a refresh. If the widget shows a dash, the last
+fetch failed — usually a connection problem or an expired key.</p>
+
+<h2>Which pools are supported?</h2>
+<p>This version connects to one pool only. Support for others is the obvious
+next step; if you'd like a particular one, email me and say which.</p>
+
+<h2>Does the app touch my funds?</h2>
+<p>No. It only ever reads. There is no wallet, no withdrawal, no payout
+function, and a read-only API key cannot move anything even if it were shared.</p>
+
+<h2>Privacy</h2>
+<p>Your API key is stored on your device and sent only to the pool's own API to
+fetch your stats. There is no Pool Monitor server, no account and no analytics.
+The full policy is at <a href="privacy-policy.html">privacy-policy.html</a>.</p>
+
+<footer style="margin-top:4rem;color:#6a7180;font-size:0.9rem">© 2026 TechBitsMix</footer>
+
+</body>
+</html>
