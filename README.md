@@ -1,6 +1,6 @@
 # Pool Monitor — mining pool monitor for iPhone
 
-<a href="https://apps.apple.com/app/id6785621114"><img src="https://tools.applemarketingtools.com/api/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" height="48"></a>
+<a href="https://apps.apple.com/app/id6785621114"><img src="https://img.shields.io/badge/Download_on_the-App_Store-0D96F6?style=for-the-badge&logo=apple&logoColor=white" alt="Download on the App Store"></a>
 
 Watch your **solo and pool mining from your iPhone** — Bitaxe, NerdQAxe, ASICs and GPUs.
 Add your BTC address or API key, and Pool Monitor shows your pool-side hashrate, workers,
@@ -9,9 +9,9 @@ best share and payouts, and **notifies you when a rig drops offline**.
 No account. No ads. No tracking. Read-only — it never touches your wallet or your miners.
 
 <p>
-  <img src="screenshots/1.jpg" width="230">
-  <img src="screenshots/2.jpg" width="230">
-  <img src="screenshots/3.jpg" width="230">
+  <img src="1.jpg" width="230">
+  <img src="2.jpg" width="230">
+  <img src="3.jpg" width="230">
 </p>
 
 ## Supported pools
