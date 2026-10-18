@@ -196,6 +196,17 @@ footer a{color:var(--muted)}
 .mac td .s{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}
 @media(max-width:520px){.mac .body{grid-template-columns:1fr}.mac .side{display:none}.phone{width:270px}}
 .illus{font-size:11px;color:var(--faint);text-align:center;margin-top:12px}
+/* gallery */
+.gal{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;scrollbar-width:thin}
+.gal figure{flex:none;scroll-snap-align:start;margin:0}
+.gal img{display:block;height:520px;width:auto;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow);cursor:zoom-in;background:var(--card)}
+.gal.wide img{height:420px;border-radius:12px}.gal.wide figcaption{max-width:380px}
+.gal figcaption{font-size:13px;color:var(--muted);margin-top:10px;max-width:260px}
+@media(max-width:620px){.gal img{height:430px}.gal.wide img{height:300px}}
+.galnav{display:flex;gap:8px;margin-left:auto}
+.galnav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:18px;cursor:pointer}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;place-items:center;z-index:50;padding:20px;cursor:zoom-out}
+.lb.on{display:grid}.lb img{max-width:100%;max-height:92vh;border-radius:14px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "PoolMonitor", "operatingSystem": "iOS", "applicationCategory": "UtilitiesApplication", "description": "PoolMonitor tracks your hashrate, workers, balances and blocks across Mining-Dutch, CKPool, public-pool, OCEAN, Parasite and 2Miners. Read-only, no account, keys kept in your Keychain.", "url": "https://shiftingeden.github.io/PoolMonitor/", "author": {"@type": "Organization", "name": "TechBitsMix"}, "offers": {"@type": "Offer", "price": "0.99", "priceCurrency": "USD"}, "downloadUrl": "https://apps.apple.com/app/id6785621114"}</script>
@@ -204,7 +215,7 @@ footer a{color:var(--muted)}
 
 <nav class="top"><div class="wrap">
 <a class="brand" href="#top"><span class="logo">P</span>PoolMonitor</a>
-<div class="navlinks"><a href="#how">How it works</a><a href="#features">Features</a><a href="#support-matrix">Supported pools</a><a href="#security">Security</a><a href="#roadmap">Roadmap</a><a href="#investors">Investors</a><a href="#support">Support</a></div>
+<div class="navlinks"><a href="#screens">Screenshots</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#support-matrix">Supported pools</a><a href="#security">Security</a><a href="#roadmap">Roadmap</a><a href="#investors">Investors</a><a href="#support">Support</a></div>
 <a class="navcta" href="https://apps.apple.com/app/id6785621114">Get PoolMonitor</a>
 </div></nav>
 <header class="hero" id="top"><div class="wrap">
@@ -225,6 +236,30 @@ footer a{color:var(--muted)}
 </div></div><p class="illus">Illustration — sample data</p></div>
 </div></header>
 <div class="wrap"><div class="stats"><div class="stat"><b>6 pools</b><span>in 2.0, more on the way</span></div><div class="stat"><b>Read-only</b><span>no wallet, no withdrawals</span></div><div class="stat"><b>$0.99</b><span>One-time purchase</span></div><div class="stat"><b>0 bytes</b><span>of your data collected</span></div></div></div>
+<section id="screens" data-shots style="padding-bottom:40px"><div class="wrap">
+<div class="sec-h" style="display:flex;align-items:flex-end;gap:20px;max-width:none;flex-wrap:wrap"><div style="max-width:720px"><div class="kicker">Screenshots</div><h2>See PoolMonitor in action</h2><p>Tap any screenshot to enlarge.</p></div>
+<div class="galnav"><button aria-label="Previous" onclick="document.getElementById('gal').scrollBy({left:-600,behavior:'smooth'})">&#8249;</button><button aria-label="Next" onclick="document.getElementById('gal').scrollBy({left:600,behavior:'smooth'})">&#8250;</button></div></div>
+<div class="gal" id="gal"><figure><img src="screenshots/1.jpg" alt="Miners: your hashrate trend, coins mining now and every worker&#x27;s status" loading="lazy"><figcaption>Miners: your hashrate trend, coins mining now and every worker&#x27;s status</figcaption></figure><figure><img src="screenshots/2.jpg" alt="Wallet: balance per coin and total portfolio value" loading="lazy"><figcaption>Wallet: balance per coin and total portfolio value</figcaption></figure><figure><img src="screenshots/3.jpg" alt="Blocks: blocks found and rewards over 1, 7 or 30 days" loading="lazy"><figcaption>Blocks: blocks found and rewards over 1, 7 or 30 days</figcaption></figure></div></div></section>
+<div class="lb" id="lb" onclick="this.classList.remove('on')"><img alt=""></div>
+<script>
+(function(){
+  // Auto-loads every image in this repo's /screenshots folder (sorted by file name).
+  // Add, remove or rename files there - no HTML edits needed. Captions come from CAPS, else from the file name.
+  var REPO="shiftingeden/PoolMonitor", CAPS={"1.jpg": "Miners: your hashrate trend, coins mining now and every worker's status", "2.jpg": "Wallet: balance per coin and total portfolio value", "3.jpg": "Blocks: blocks found and rewards over 1, 7 or 30 days"};
+  var sec=document.querySelector("[data-shots]"), gal=document.getElementById("gal"), lb=document.getElementById("lb");
+  function cap(n){ if(CAPS[n]) return CAPS[n]; var t=n.replace(/\.[^.]+$/,"").replace(/^[0-9]+[-_ ]*/,"").replace(/[-_]+/g," ").trim(); return t? t.charAt(0).toUpperCase()+t.slice(1) : ""; }
+  function wire(){ gal.querySelectorAll("img").forEach(function(i){ i.onclick=function(){ lb.querySelector("img").src=i.src; lb.querySelector("img").alt=i.alt; lb.classList.add("on"); }; }); }
+  wire();
+  document.addEventListener("keydown",function(ev){ if(ev.key==="Escape") lb.classList.remove("on"); });
+  fetch("https://api.github.com/repos/"+REPO+"/contents/screenshots").then(function(r){ return r.ok? r.json() : []; }).then(function(list){
+    var imgs=(Array.isArray(list)?list:[]).filter(function(f){ return /\.(png|jpe?g|webp|gif)$/i.test(f.name); })
+      .sort(function(x,y){ return x.name.localeCompare(y.name,undefined,{numeric:true}); });
+    if(!imgs.length) return;
+    gal.innerHTML=imgs.map(function(f){ var c=cap(f.name).replace(/"/g,"&quot;"); return '<figure><img src="screenshots/'+encodeURIComponent(f.name)+'" alt="'+c+'" loading="lazy"><figcaption>'+c+'</figcaption></figure>'; }).join("");
+    sec.style.display=""; wire();
+  }).catch(function(){});
+})();
+</script>
 <section id="how"><div class="wrap">
 <div class="sec-h"><div class="kicker">How it works</div><h2>Add a pool in seconds</h2><p>Paste a payout address or a read-only API key, depending on the pool. That&#x27;s it. No PoolMonitor account, ever.</p></div>
 <div class="steps"><div class="step"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg><h3>Add your address or key</h3><p>Solo pools only need your BTC address. Account pools use a read-only API key, which is stored in the iOS Keychain.</p></div><div class="step"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>Auto-detect what you mine</h3><p>For multi-coin pools, PoolMonitor checks common coins and shows only the ones you&#x27;re active on.</p></div><div class="step"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><h3>Get alerted</h3><p>Offline workers, back-online notices, payouts and found blocks, with quiet hours so it never wakes you.</p></div></div></div></section>
